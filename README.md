@@ -1,16 +1,17 @@
-# xgetres
+# xrescat
 
-xgetres is a simple utility which prints the value of an X resource.
+`xrescat` is a simple utility which prints the value of an X resource.  It is [based on `xgetres`](https://github.com/tamirzb/xgetres) but does not add a linefeed, like `cat`.
 
 ## Example
 
     $ cat ~/.Xresources
     simple: 1
     *wildcard: 2
-    $ xgetres simple
-    1
-    $ xgetres foo.wildcard
-    2
+    $ xrescat simple
+    1$
+    $ xrescat foo.wildcard
+    2$
+    $
 
 ## Build & installation
 

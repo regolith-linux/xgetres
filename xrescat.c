@@ -32,7 +32,7 @@ static int print_xresource(const char *resource)
     XrmValue value;
     char *type;
     if (XrmGetResource(db, resource, resource, &type, &value)) {
-        printf("%s\n", value.addr);
+        printf("%s", value.addr);
         ret = 0;
     } else {
         // Resource not found
@@ -66,7 +66,7 @@ int main(int argc, char * const argv[])
                argv[0]);
         return 0;
     case 'v':
-        printf("xgetres " VERSION "\n");
+        printf("xrescat " VERSION "\n");
         return 0;
     case -1:
         if (2 == argc) {
