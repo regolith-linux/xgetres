@@ -2,7 +2,7 @@
 #include <getopt.h>
 #include <X11/Xresource.h>
 
-static int print_xresource(const char *resource)
+static int print_xresource(const char *resource, const char *defaultValue)
 {
     int ret;
 
@@ -34,9 +34,15 @@ static int print_xresource(const char *resource)
     if (XrmGetResource(db, resource, resource, &type, &value)) {
         printf("%s", value.addr);
         ret = 0;
-    } else {
-        // Resource not found
-        ret = 1;
+    } else { // Resource not found
+        if (defaultValue != NULL) {
+            // Use default
+            printf("%s", defaultValue);
+            ret = 0;
+        } else {
+            // Error
+            ret = 1;
+        }
     }
 
 cleanup:
@@ -46,7 +52,7 @@ cleanup:
     return ret;
 }
 
-#define USAGE "Usage: %s [OPTION] RESOURCE\n"
+#define USAGE "Usage: %s [OPTION] RESOURCE [DEFAULT VALUE]\n"
 
 int main(int argc, char * const argv[])
 {
@@ -70,7 +76,9 @@ int main(int argc, char * const argv[])
         return 0;
     case -1:
         if (2 == argc) {
-            return print_xresource(argv[1]);
+            return print_xresource(argv[1], NULL);
+        } else if (3 == argc) {
+            return print_xresource(argv[1], argv[2]);
         }
     default:
         fprintf(stderr, USAGE
