@@ -32,7 +32,15 @@ static int print_xresource(const char *resource, const char *defaultValue)
     XrmValue value;
     char *type;
     if (XrmGetResource(db, resource, resource, &type, &value)) {
-        printf("%s", value.addr);
+        // last character of returned string is null, so skip that when
+        // checking the value of the actual last character in the string
+        if( value.addr[0] == '"' && value.addr[value.size-2] == '"') {
+            // surrounding quotes are present at start and and of string,
+            // exclude them.
+            printf("%.*s", value.size-3, &value.addr[1]);
+        } else {
+            printf("%s", value.addr);
+        }
         ret = 0;
     } else { // Resource not found
         if (defaultValue != NULL) {
