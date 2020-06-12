@@ -9,4 +9,5 @@ Homepage: https://github.com/tamirzb/xrescat
 Package: xrescat
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Simple utility which prints the value of an X resource
+Description: cat Xresources
+ Simple utility which prints the value of an X resource.

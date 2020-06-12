@@ -1,3 +1,13 @@
+xrescat (1.2.0-1) bionic; urgency=medium
+
+  [ Jeremy Coghill ]
+  * added logic to exclude surrounding double quotes from returned strings to allow for the use of leading and trailing spaces in resources. updated version number. updated man page
+
+  [ Ken Gilmer ]
+  * Update README for new double quote handling.  Add gbp config. Cleanup.
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Thu, 11 Jun 2020 21:36:10 -0700
+
 xrescat (1.1-1ubuntu1ppa1) bionic; urgency=medium
 
   * Add option for default value.

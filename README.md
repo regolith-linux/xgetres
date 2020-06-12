@@ -1,6 +1,6 @@
 # xrescat
 
-`xrescat` is a simple utility which prints the value of an X resource.  It is [based on `xgetres`](https://github.com/tamirzb/xgetres) but does not add a linefeed, like `cat`.
+`xrescat` is a simple utility which prints the value of an X resource.  It is [based on `xgetres`](https://github.com/tamirzb/xgetres) but does not add a linefeed, like `cat`.  `xrescat` will also trim enveloping double-quotes from values.
 
 ## Example
 
