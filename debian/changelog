@@ -1,3 +1,11 @@
+xrescat (1.2.1-1) bionic; urgency=medium
+
+  [ Ken Gilmer ]
+  * Cleanup lintian warnings.
+  * Version bump to appease launchpad
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 09 Aug 2020 10:33:01 -0700
+
 xrescat (1.2.0-1) bionic; urgency=medium
 
   [ Jeremy Coghill ]
